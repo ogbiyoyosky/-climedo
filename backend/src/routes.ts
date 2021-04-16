@@ -1,3 +1,4 @@
+import TabController from "./controllers/tab.controller";
 import { Router } from "express";
 
 import validate from "./middleware/validators/validate";
@@ -17,7 +18,13 @@ router.get("/", (req, res) => {
 });
 
 
+router.post("/tabs", validate.validateBody(validate.schemas.tab),  TabController.create)
 
+router.put("/tabs/:tabId", validate.validateBody(validate.schemas.tab), TabController.update)
+
+router.delete("/tabs/:tabId", TabController.delete)
+
+router.get("/tabs", TabController.fetch)
 
 
 export default router;
