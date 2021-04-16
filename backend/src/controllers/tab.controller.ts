@@ -81,7 +81,7 @@ class TabController {
             Object.assign(tabExist, { ...data })
             await tabExist.save()
 
-            return res.status(httpStatus.PARTIAL_CONTENT).send({
+            return res.status(httpStatus.OK).send({
                 message: "Successfully Updated",
                 data: tabExist
             })
